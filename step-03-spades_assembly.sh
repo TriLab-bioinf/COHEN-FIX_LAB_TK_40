@@ -15,13 +15,13 @@ fi
 
 module load spades/3.15.5 
 
-echo spades.py --cov-cutoff auto -o "03-spades" -1 ${FASTQ_1P} -2 ${FASTQ_2P} --s1 ${FASTQ_1U} --s2 ${FASTQ_2U} --careful --only-assembler --threads 16 --memory 246 --tmp-dir /lscratch/$SLURM_JOB_ID \> ${SAMPLE}_spades.log 2\>&1
+# Spades optional parameters
+OPTIONS='--isolate'
+# OPTIONS='--careful --only-assembler'
 
-# --careful --only-assembler
-#spades.py --cov-cutoff auto -o "03-spades" -1 ${FASTQ_1P} -2 ${FASTQ_2P} --s1 ${FASTQ_1U} --s2 ${FASTQ_2U} --careful --only-assembler --threads 16 --memory 246 --tmp-dir /lscratch/$SLURM_JOB_ID > ${SAMPLE}_spades.log 2>&1
+echo spades.py --cov-cutoff auto -o "03-spades" -1 ${FASTQ_1P} -2 ${FASTQ_2P} --s1 ${FASTQ_1U} --s2 ${FASTQ_2U} ${OPTIONS} --threads 16 --memory 246 --tmp-dir /lscratch/$SLURM_JOB_ID \> ${SAMPLE}_spades.log 2\>&1
 
-# --isolate
-spades.py --cov-cutoff auto -o "03-spades" -1 ${FASTQ_1P} -2 ${FASTQ_2P} --s1 ${FASTQ_1U} --s2 ${FASTQ_2U} --isolate --threads 16 --memory 246 --tmp-dir /lscratch/$SLURM_JOB_ID > ${SAMPLE}_spades.log 2>&1
+spades.py --cov-cutoff auto -o "03-spades" -1 ${FASTQ_1P} -2 ${FASTQ_2P} --s1 ${FASTQ_1U} --s2 ${FASTQ_2U} ${OPTIONS}  --threads 16 --memory 246 --tmp-dir /lscratch/$SLURM_JOB_ID > ${SAMPLE}_spades.log 2>&1
 
 
 
