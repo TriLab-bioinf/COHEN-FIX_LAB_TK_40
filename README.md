@@ -16,6 +16,8 @@ sbatch step-03-spades_assembly.sh <path to trimmed reads directory> <sample name
 ```
 
 ### Run QC of resulting assembly
-sbatch step-04-quast.sh ${GENOME} ${ANNOTATION} OC7826-1 ./03-spades/scaffolds.fasta 
+```
+CONTIGS=./03-spades/scaffolds.fasta
+sbatch step-04-quast.sh ${GENOME} ${ANNOTATION} <sample name> ${CONTIGS} 
 
 
