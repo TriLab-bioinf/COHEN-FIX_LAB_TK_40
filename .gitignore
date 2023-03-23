@@ -6,11 +6,10 @@ slurm-*
 *.fai
 *.dict
 *.fa
-01-fastqc/
-02-trimmed/
-03-spades_careful/
-03-spades/
-03-spades_isolate/
+0*/
 READS/
 ._.DS_Store
 .DS_Store
+*fna
+*.gff
+out*
