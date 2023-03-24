@@ -1,8 +1,13 @@
 #!/bin/bash
 set -e
 
-GENOME=$1
-CONTIGS=$2
+if [[ -n $1 && $2 ]]; then
+    GENOME=$1
+    CONTIGS=$2
+elif [[ -z ${GENOME} || -z ${CONTIGS} ]]; then
+    echo $0 "<GENOME> <CONTIGS>"
+    exit 1
+fi
 
 module load ragtag
 

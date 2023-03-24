@@ -1,10 +1,15 @@
 #!/bin/bash
 set -e
 
-GENOME=$1
-GFF=$2
-CONTIGS=$3
-LIST=$4
+if [[ -n $1 && $2 && $3 ]]; then
+    GENOME=$1
+    CONTIGS=$2
+    LIST=$3
+elif [[ -z ${GENOME} || -z ${CONTIGS} || -z ${LIST} ]]; then
+    echo $0 "<GENOME> <SCONTIGS> <LIST>"
+    exit 1
+fi
+
 
 module load ragtag
 

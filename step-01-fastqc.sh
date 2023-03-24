@@ -1,7 +1,13 @@
 #!/usr/bin/bash
+set -o xtrace
 
-READ_DIR=$1
-SAMPLE=$2
+if [[ -n $1 && $2 ]]; then
+    READ_DIR=$1
+    SAMPLE=$2
+elif [[ -z ${SAMPLE} || -z ${READ_DIR} ]]; then
+    echo $0 "<READ_DIR> <SAMPLE>"
+    exit 1
+fi
 
 FASTQ1=`ls ${READ_DIR}/${SAMPLE}*R1*fastq.gz`
 FASTQ2=`ls ${READ_DIR}/${SAMPLE}*R2*fastq.gz`
